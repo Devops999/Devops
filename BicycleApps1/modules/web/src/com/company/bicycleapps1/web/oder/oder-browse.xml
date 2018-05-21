@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.bicycleapps1.web.oder.OderBrowse"
+        focusComponent="odersTable"
+        lookupComponent="odersTable"
+        messagesPack="com.company.bicycleapps1.web.oder">
+    <dsContext>
+        <groupDatasource id="odersDs"
+                         class="com.company.bicycleapps1.entity.Oder"
+                         view="oder-view">
+            <query>
+                <![CDATA[select e from bicycleapps1$Oder e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="odersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="odersTable"
+                datasource="odersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="odersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="client"/>
+                <column id="mechanics"/>
+                <column id="description"/>
+                <column id="hoursSpent"/>
+                <column id="amount"/>
+                <column id="status"/>
+                <column id="palvisha"/>
+            </columns>
+            <rows datasource="odersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="odersTable.create"/>
+                <button id="editBtn"
+                        action="odersTable.edit"/>
+                <button id="removeBtn"
+                        action="odersTable.remove"/>
+                <button id="button"
+                        caption="Set as New"
+                        invoke="onButtonClick"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.js"></script> !-->
+    <script type="text/javascript" src="./jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Title</title>
+
+    <style>
+div.row1 {
+    font-size: 150%;
+}
+
+div.row2 {
+    font-size: 150%;
+}
+
+
+</style>
+</head>
+<body>
+<div style="width: 300px; margin: auto;">
+    <h1>Retail Workshop</h1>
+
+    <div id="loggedInStatus" style="display: none" class="alert alert-success">
+        Logged in successfully
+    </div>
+    <div id="loginForm">
+        <div class="form-group">
+            <label for="loginField">Login:</label>
+            <input type="text" class="form-control" id="loginField">
+        </div>
+        <div class="form-group">
+            <label for="passwordField">Password:</label>
+            <input type="password" class="form-control" id="passwordField">
+        </div>
+        <button type="submit" class="btn btn-default" onclick="login()">Submit</button>
+    </div>
+
+   <!-- <div id="recentProperties" style="display: none">
+        <h2>Properties</h2>
+        <ul id="propertiesList"></ul>
+        <ul id="propertiesLis2t"></ul>
+    </div> !-->
+</div>
+
+<table id="tab" style="width:100%">
+
+    <tr id="row1" >
+        <td id="data1"></td>
+    </tr>
+    <tr id="row2">
+        <td id="data2"></br></br></br></td>
+    </tr>
+</table>
+
+
+<script type="text/javascript">
+
+
+
+    var oauthToken = null;
+
+   function login() {
+       var userLogin = $('#loginField').val();
+       var userPassword = $('#passwordField').val();
+       console.log ( '#someButton was clicked' );
+       $.post({
+           url: 'http://localhost:8080/app/rest/v2/oauth/token',
+           headers: {
+               'Authorization': 'Basic Y2xpZW50OnNlY3JldA==',
+               'Content-Type': 'application/x-www-form-urlencoded'
+           },
+           dataType: 'json',
+           data: {grant_type: 'password', username: userLogin, password: userPassword},
+           success: function (data) {
+               oauthToken = data.access_token;
+               $('#loggedInStatus').show();
+               $('#loginForm').hide();
+               loadRecentProperties();
+           }
+       })
+   }
+
+    function loadRecentProperties() {
+       $.get({
+           url: 'http://localhost:8080/app/rest/v2/entities/task$Property?view=_local',
+           headers: {
+               'Authorization': 'Bearer ' + oauthToken,
+               'Content-Type': 'application/x-www-form-urlencoded'
+           },
+           success: function (data) {
+               $('#recentProperties').show();
+               $.each(data, function (i, property) {
+
+
+
+
+$('#tab').append("<li>"+ property.imageFile +'&nbsp;' + '&nbsp;' + '&nbsp;' + property.type.big().bold() +'&nbsp;' + '&nbsp;' + '&nbsp;' + property.city.big().bold() + '&nbsp;' + '&nbsp;' + '&nbsp;' + property.locality.big().bold() + '&nbsp;' + '&nbsp;' +'&nbsp;' +
+
+'&nbsp;' + '&nbsp;' + '&nbsp;' + property.units.big().bold() + '&nbsp;' + '&nbsp;' + '&nbsp;' + property.areaSqFt.big().bold() + '&nbsp;' + '&nbsp;' +'&nbsp;' + property.ageOfConstruction.big().bold() + '&nbsp;' + '&nbsp;' +'&nbsp;' + property.price.big().bold() + "</li>");
+});
+           }
+       });
+   }
+</script>
+
+</body>
+</html>

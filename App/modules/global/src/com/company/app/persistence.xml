@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="App"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.app.entity.Customer</class>
+        <class>com.company.app.entity.Seller</class>
+        <class>com.company.app.entity.Property</class>
+        <class>com.company.app.entity.Booking</class>
+        <class>com.company.app.entity.Enquiry</class>
+        <class>com.company.app.entity.Transaction</class>
+        <class>com.company.app.entity.Office</class>
+    </persistence-unit>
+</persistence>

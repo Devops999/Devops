@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="hrManagement"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.hrmanagement.entity.AddEmployee</class>
+        <class>com.company.hrmanagement.entity.AssignDN</class>
+        <class>com.company.hrmanagement.entity.PersonalDetails</class>
+        <class>com.company.hrmanagement.entity.QualificationDetails</class>
+        <class>com.company.hrmanagement.entity.TrainingDetailsPriorToJoining</class>
+        <class>com.company.hrmanagement.entity.ExperienceDetails</class>
+        <class>com.company.hrmanagement.entity.NomineesDetails</class>
+        <class>com.company.hrmanagement.entity.SalaryDetails</class>
+        <class>com.company.hrmanagement.entity.VerifyEmpStatus</class>
+        <class>com.company.hrmanagement.entity.ReportToDetails</class>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,1 @@
+alter table HRMANAGEMENT_SALARY_DETAILS drop column ESTABLISHMENT_CODE__U82292 cascade ;

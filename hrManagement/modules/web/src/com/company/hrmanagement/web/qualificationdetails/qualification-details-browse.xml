@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.hrmanagement.web.qualificationdetails.QualificationDetailsBrowse"
+        focusComponent="qualificationDetailsesTable"
+        lookupComponent="qualificationDetailsesTable"
+        messagesPack="com.company.hrmanagement.web.qualificationdetails">
+    <dsContext>
+        <groupDatasource id="qualificationDetailsesDs"
+                         class="com.company.hrmanagement.entity.QualificationDetails"
+                         view="_local">
+            <query>
+                <![CDATA[select e from hrmanagement$QualificationDetails e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="qualificationDetailsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="qualificationDetailsesTable"
+                datasource="qualificationDetailsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="qualificationDetailsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="level"/>
+                <column id="degree"/>
+                <column id="schoolOrCollage"/>
+                <column id="boardOfUniversity"/>
+                <column id="yearOfQualification"/>
+                <column id="divission"/>
+                <column id="percentage"/>
+            </columns>
+            <rows datasource="qualificationDetailsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="qualificationDetailsesTable.create"/>
+                <button id="editBtn"
+                        action="qualificationDetailsesTable.edit"/>
+                <button id="removeBtn"
+                        action="qualificationDetailsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

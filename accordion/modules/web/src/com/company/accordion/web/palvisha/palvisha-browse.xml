@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.accordion.web.palvisha.PalvishaBrowse"
+        focusComponent="palvishasTable"
+        lookupComponent="palvishasTable"
+        messagesPack="com.company.accordion.web.palvisha">
+    <dsContext>
+        <groupDatasource id="palvishasDs"
+                         class="com.company.accordion.entity.Palvisha"
+                         view="_local">
+            <query>
+                <![CDATA[select e from accordion$Palvisha e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="palvishasTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="palvishasTable"
+                datasource="palvishasDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="palvishasTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+            </columns>
+            <rows datasource="palvishasDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="palvishasTable.create"/>
+                <button id="editBtn"
+                        action="palvishasTable.edit"/>
+                <button id="removeBtn"
+                        action="palvishasTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.hrmanagement.web.qualificationdetails.QualificationDetailsEdit"
+        datasource="qualificationDetailsDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.hrmanagement.web.qualificationdetails">
+    <dsContext>
+        <datasource id="qualificationDetailsDs"
+                    class="com.company.hrmanagement.entity.QualificationDetails"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="qualificationDetailsDs">
+            <column width="250px">
+                <field property="level"/>
+                <field property="degree"/>
+                <field property="schoolOrCollage"/>
+                <field property="boardOfUniversity"/>
+                <field property="yearOfQualification"/>
+                <field property="divission"/>
+                <field property="percentage"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

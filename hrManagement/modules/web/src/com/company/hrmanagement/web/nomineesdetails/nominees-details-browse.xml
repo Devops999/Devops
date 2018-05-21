@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.hrmanagement.web.nomineesdetails.NomineesDetailsBrowse"
+        focusComponent="nomineesDetailsesTable"
+        lookupComponent="nomineesDetailsesTable"
+        messagesPack="com.company.hrmanagement.web.nomineesdetails">
+    <dsContext>
+        <groupDatasource id="nomineesDetailsesDs"
+                         class="com.company.hrmanagement.entity.NomineesDetails"
+                         view="nomineesDetails-view">
+            <query>
+                <![CDATA[select e from hrmanagement$NomineesDetails e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="nomineesDetailsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="nomineesDetailsesTable"
+                datasource="nomineesDetailsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="nomineesDetailsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="typesOfScheme"/>
+                <column id="name"/>
+                <column id="relationship"/>
+                <column id="minorNominee"/>
+                <column id="address"/>
+                <column id="share"/>
+                <column id="dateOfBirth"/>
+                <column id="gurdianName"/>
+                <column id="gurdianAddress"/>
+            </columns>
+            <rows datasource="nomineesDetailsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="nomineesDetailsesTable.create"/>
+                <button id="editBtn"
+                        action="nomineesDetailsesTable.edit"/>
+                <button id="removeBtn"
+                        action="nomineesDetailsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.bicycleapps1.web.oder.OderEdit"
+        datasource="oderDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.bicycleapps1.web.oder">
+    <dsContext>
+        <datasource id="oderDs"
+                    class="com.company.bicycleapps1.entity.Oder"
+                    view="oder-view">
+            <collectionDatasource id="partsDs"
+                                  property="parts"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="oderDs">
+            <column width="250px">
+                <field property="client"/>
+                <field property="mechanics"/>
+                <field property="description"
+                       rows="5"/>
+                <field property="hoursSpent"/>
+                <field property="amount"/>
+                <field property="status"/>
+                <field property="palvisha"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="partsBox"
+                  caption="msg://com.company.bicycleapps1.entity/Oder.parts">
+            <table id="partsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="add"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="title"/>
+                    <column id="description"/>
+                </columns>
+                <rows datasource="partsDs"/>
+                <buttonsPanel>
+                    <button action="partsTable.add"/>
+                    <button action="partsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

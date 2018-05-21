@@ -1,0 +1,1 @@
+create unique index IDX_APP_SELLER_UNIQ_CONTACT on APP_SELLER (CONTACT) ;

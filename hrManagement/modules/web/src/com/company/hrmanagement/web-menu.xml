@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-hrmanagement"
+          insertBefore="administration">
+        <item screen="hrmanagement$AddEmployee.browse"/>
+        <item screen="hrmanagement$AssignDN.browse"/>
+        <item screen="hrmanagement$TrainingDetailsPriorToJoining.browse"/>
+        <item screen="hrmanagement$NomineesDetails.browse"/>
+        <item screen="hrmanagement$ExperienceDetails.browse"/>
+        <item screen="hrmanagement$SalaryDetails.browse"/>
+        <item screen="hrmanagement$PersonalDetails.browse"/>
+        <item screen="hrmanagement$QualificationDetails.browse"/>
+        <item screen="hrmanagement$ReportToDetails.browse"/>
+        <item screen="hrmanagement$VerifyEmpStatus.browse"/>
+    </menu>
+</menu-config>

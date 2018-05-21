@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.task.web.broker.BrokerBrowse"
+        focusComponent="brokersTable"
+        lookupComponent="brokersTable"
+        messagesPack="com.company.task.web.broker">
+    <dsContext>
+        <groupDatasource id="brokersDs"
+                         class="com.company.task.entity.Broker"
+                         view="_local">
+            <query>
+                <![CDATA[select e from task$Broker e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="brokersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="brokersTable"
+                datasource="brokersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="brokersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="schemes"/>
+                <column id="locationWide"/>
+            </columns>
+            <rows datasource="brokersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="brokersTable.create"/>
+                <button id="editBtn"
+                        action="brokersTable.edit"/>
+                <button id="removeBtn"
+                        action="brokersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

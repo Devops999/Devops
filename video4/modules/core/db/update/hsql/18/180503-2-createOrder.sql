@@ -1,0 +1,2 @@
+alter table VIDEO4_ORDER add constraint FK_VIDEO4_ORDER_CUSTOMER foreign key (CUSTOMER_ID) references VIDEO4_CUSTOMER(ID);
+create index IDX_VIDEO4_ORDER_CUSTOMER on VIDEO4_ORDER (CUSTOMER_ID);

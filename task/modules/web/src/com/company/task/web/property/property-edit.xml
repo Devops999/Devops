@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.task.web.property.PropertyEdit"
+        datasource="propertyDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.task.web.property">
+    <dsContext>
+        <datasource id="propertyDs"
+                    class="com.company.task.entity.Property"
+                    view="property-view"/>
+        <collectionDatasource id="sellersDs"
+                              class="com.company.task.entity.Seller"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from task$Seller e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <groupBox caption="Photo" spacing="true"
+          height="250px" width="250px" expand="embeddedImage">
+        <embedded id="embeddedImage" width="100%"
+                  align="MIDDLE_CENTER"/>
+    <hbox align="BOTTOM_LEFT"
+          spacing="true">
+        <upload id="uploadField"/>
+        <button id="downloadImageBtn"
+                caption="Download"
+                invoke="onDownloadImageBtnClick"/>
+        <button id="clearImageBtn"
+                caption="Clear"
+                invoke="onClearImageBtnClick"/>
+    </hbox>
+</groupBox>
+        <fieldGroup id="fieldGroup"
+                    datasource="propertyDs">
+            <column width="250px">
+                <field property="imageFile"/>
+                <field property="type"/>
+                <field property="city"/>
+                <field property="locality"/>
+                <field property="units"/>
+                <field property="areaSqFt"/>
+                <field property="ageOfConstruction"/>
+                <field property="price"/>
+                <field optionsDatasource="sellersDs"
+                       property="seller"/>
+                <field property="enquiry"
+                       rows="5"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

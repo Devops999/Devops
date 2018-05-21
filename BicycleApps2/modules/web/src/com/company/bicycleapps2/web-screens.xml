@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/company/bicycleapps2/screens.xml"/>
+    <screen id="bicycleapps2$Client.browse"
+            template="com/company/bicycleapps2/web/client/client-browse.xml"/>
+    <screen id="bicycleapps2$Client.edit"
+            template="com/company/bicycleapps2/web/client/client-edit.xml"/>
+    <screen id="bicycleapps2$Mechanic.edit"
+            template="com/company/bicycleapps2/web/mechanic/mechanic-edit.xml"/>
+    <screen id="bicycleapps2$Order.browse"
+            template="com/company/bicycleapps2/web/order/order-browse.xml"/>
+    <screen id="bicycleapps2$Order.edit"
+            template="com/company/bicycleapps2/web/order/order-edit.xml"/>
+    <screen id="bicycleapps2$Mechanic.browse"
+            template="com/company/bicycleapps2/web/mechanic/mechanic-browse.xml"/>
+    <screen id="bicycleapps2$SparePart.browse"
+            template="com/company/bicycleapps2/web/sparepart/spare-part-browse.xml"/>
+</screen-config>

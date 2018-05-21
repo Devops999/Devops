@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.hrmanagement.web.assigndn.AssignDNEdit"
+        datasource="assignDNDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.hrmanagement.web.assigndn">
+    <dsContext>
+        <datasource id="assignDNDs"
+                    class="com.company.hrmanagement.entity.AssignDN"
+                    view="assignDN-view"/>
+        <collectionDatasource id="selectEmployeesDs"
+                              class="com.company.hrmanagement.entity.AddEmployee"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from hrmanagement$AddEmployee e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="assignDNDs">
+            <column width="250px">
+                <field property="code"/>
+                <field optionsDatasource="selectEmployeesDs"
+                       property="selectEmployee"/>
+                <field property="domainName"/>
+                <field property="emailId"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

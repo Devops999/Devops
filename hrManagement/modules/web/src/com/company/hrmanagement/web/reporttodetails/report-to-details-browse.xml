@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.hrmanagement.web.reporttodetails.ReportToDetailsBrowse"
+        focusComponent="reportToDetailsesTable"
+        lookupComponent="reportToDetailsesTable"
+        messagesPack="com.company.hrmanagement.web.reporttodetails">
+    <dsContext>
+        <groupDatasource id="reportToDetailsesDs"
+                         class="com.company.hrmanagement.entity.ReportToDetails"
+                         view="_local">
+            <query>
+                <![CDATA[select e from hrmanagement$ReportToDetails e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="reportToDetailsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="reportToDetailsesTable"
+                datasource="reportToDetailsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="reportToDetailsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                
+    <action id="someAction" caption="submit" icon="font-icon:ENVELOPE_O" invoke="someAction"/>
+
+            </actions>
+            <columns>
+                <column id="selectCode"/>
+            </columns>
+            <rows datasource="reportToDetailsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="reportToDetailsesTable.create"/>
+                <button id="editBtn"
+                        action="reportToDetailsesTable.edit"/>
+                <button id="removeBtn"
+                        action="reportToDetailsesTable.remove"/>
+                <button id="Submitbtn" action="reportToDetailsesTable.someAction"/>
+               
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

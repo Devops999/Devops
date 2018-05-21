@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ems.web.employee.EmployeeEdit"
+        datasource="employeeDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ems.web.employee">
+    <dsContext>
+        <datasource id="employeeDs"
+                    class="com.company.ems.entity.Employee"
+                    view="employee-view">
+            <collectionDatasource id="addressesDs"
+                                  property="addresses"/>
+            <collectionDatasource id="contactsDs"
+                                  property="contacts"/>
+            <collectionDatasource id="bankAccountsDs"
+                                  property="bankAccounts"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="employeeDs">
+                <column width="250px">
+                    <field property="firstName"/>
+                    <field property="middleName"/>
+                    <field property="lastName"/>
+                    <field property="surname"/>
+                    <field property="dateOfBirth"/>
+                    <field property="gender"/>
+                    <field property="height"/>
+                    <field property="weight"/>
+                    <field property="email"/>
+                    <field property="homePhoneNumber"/>
+                    <field property="cellPhoneNumber"/>
+                    <field property="manager"/>
+                    <field property="user"/>
+                    <field property="startDate"/>
+                    <field property="terminationDate"/>
+                    <field property="resignationDate"/>
+                    <field property="annualSalary"/>
+                </column>
+            </fieldGroup>
+            <groupBox id="addressesBox"
+                      caption="msg://com.company.ems.entity/Employee.addresses">
+                <table id="addressesTable"
+                       height="200px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="fromDate"/>
+                        <column id="toDate"/>
+                        <column id="addressType"/>
+                        <column id="addressLine1"/>
+                        <column id="addressline2"/>
+                    </columns>
+                    <rows datasource="addressesDs"/>
+                    <buttonsPanel>
+                        <button action="addressesTable.create"/>
+                        <button action="addressesTable.edit"/>
+                        <button action="addressesTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+            <groupBox id="contactsBox"
+                      caption="msg://com.company.ems.entity/Employee.contacts">
+                <table id="contactsTable"
+                       height="200px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="contactFirstName"/>
+                        <column id="contactLastName"/>
+                        <column id="homePhoneNumber"/>
+                        <column id="cellPhoneNumber"/>
+                        <column id="email"/>
+                    </columns>
+                    <rows datasource="contactsDs"/>
+                    <buttonsPanel>
+                        <button action="contactsTable.create"/>
+                        <button action="contactsTable.edit"/>
+                        <button action="contactsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+            <groupBox id="bankAccountsBox"
+                      caption="msg://com.company.ems.entity/Employee.bankAccounts">
+                <table id="bankAccountsTable"
+                       height="200px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="fromDate"/>
+                        <column id="toDate"/>
+                        <column id="bankCode"/>
+                        <column id="bankSwitchCode"/>
+                        <column id="bankName"/>
+                        <column id="branchName"/>
+                        <column id="accountType"/>
+                        <column id="accountNo"/>
+                    </columns>
+                    <rows datasource="bankAccountsDs"/>
+                    <buttonsPanel>
+                        <button action="bankAccountsTable.create"/>
+                        <button action="bankAccountsTable.edit"/>
+                        <button action="bankAccountsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

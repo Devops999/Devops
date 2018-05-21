@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.accordion.entity.ExtUser"
+          extends="user.browse"
+          name="user.browse">
+        <property name="palvisha"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.company.accordion.entity.ExtUser"
+          extends="user.edit"
+          name="user.edit">
+        <property name="palvisha"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+</views>

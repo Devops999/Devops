@@ -1,0 +1,2 @@
+alter table EMS_BANK add constraint FK_EMS_BANK_ORGANIZATION foreign key (ORGANIZATION_ID) references EMS_ORGANIZATION(ID);
+create index IDX_EMS_BANK_ORGANIZATION on EMS_BANK (ORGANIZATION_ID);

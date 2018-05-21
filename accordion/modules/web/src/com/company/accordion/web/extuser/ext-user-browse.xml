@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.accordion.web.extuser.ExtUserBrowse"
+        focusComponent="extUsersTable"
+        lookupComponent="extUsersTable"
+        messagesPack="com.company.accordion.web.extuser">
+    <dsContext>
+        <groupDatasource id="extUsersDs"
+                         class="com.company.accordion.entity.ExtUser"
+                         view="_minimal">
+            <query>
+                <![CDATA[select e from accordion$ExtUser e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="extUsersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="extUsersTable"
+                datasource="extUsersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="extUsersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="login"/>
+                <column id="name"/>
+            </columns>
+            <rows datasource="extUsersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="extUsersTable.create"/>
+                <button id="editBtn"
+                        action="extUsersTable.edit"/>
+                <button id="removeBtn"
+                        action="extUsersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

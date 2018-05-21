@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.hrmanagement.web.assigndn.AssignDNBrowse"
+        focusComponent="assignDNsTable"
+        lookupComponent="assignDNsTable"
+        messagesPack="com.company.hrmanagement.web.assigndn">
+    <dsContext>
+        <groupDatasource id="assignDNsDs"
+                         class="com.company.hrmanagement.entity.AssignDN"
+                         view="assignDN-view">
+            <query>
+                <![CDATA[select e from hrmanagement$AssignDN e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="assignDNsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="assignDNsTable"
+                datasource="assignDNsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="assignDNsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="selectEmployee"/>
+                <column id="domainName"/>
+                <column id="emailId"/>
+            </columns>
+            <rows datasource="assignDNsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="assignDNsTable.create"/>
+                <button id="editBtn"
+                        action="assignDNsTable.edit"/>
+                <button id="removeBtn"
+                        action="assignDNsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

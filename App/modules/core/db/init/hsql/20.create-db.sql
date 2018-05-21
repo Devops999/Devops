@@ -1,0 +1,13 @@
+-- begin APP_CUSTOMER
+create unique index IDX_APP_CUSTOMER_UNIQ_CONTACT on APP_CUSTOMER (CONTACT) ^
+create unique index IDX_APP_CUSTOMER_UNIQ_EMAIL on APP_CUSTOMER (EMAIL) ^
+-- end APP_CUSTOMER
+-- begin APP_SELLER
+create unique index IDX_APP_SELLER_UNIQ_CONTACT on APP_SELLER (CONTACT) ^
+-- end APP_SELLER
+-- begin APP_PROPERTY
+alter table APP_PROPERTY add constraint FK_APP_PROPERTY_IMAGE_FILE foreign key (IMAGE_FILE_ID) references SYS_FILE(ID)^
+alter table APP_PROPERTY add constraint FK_APP_PROPERTY_SELLER foreign key (SELLER_ID) references APP_SELLER(ID)^
+create index IDX_APP_PROPERTY_IMAGE_FILE on APP_PROPERTY (IMAGE_FILE_ID)^
+create index IDX_APP_PROPERTY_SELLER on APP_PROPERTY (SELLER_ID)^
+-- end APP_PROPERTY

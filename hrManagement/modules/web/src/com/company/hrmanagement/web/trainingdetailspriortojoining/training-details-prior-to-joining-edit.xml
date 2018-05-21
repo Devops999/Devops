@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.hrmanagement.web.trainingdetailspriortojoining.TrainingDetailsPriorToJoiningEdit"
+        datasource="trainingDetailsPriorToJoiningDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.hrmanagement.web.trainingdetailspriortojoining">
+    <dsContext>
+        <datasource id="trainingDetailsPriorToJoiningDs"
+                    class="com.company.hrmanagement.entity.TrainingDetailsPriorToJoining"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="trainingDetailsPriorToJoiningDs">
+            <column width="250px">
+                <field property="typeOfTraining"/>
+                <field property="faculty"/>
+                <field property="duration"/>
+                <field property="yearOfTraining"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

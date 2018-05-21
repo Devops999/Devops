@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.bicycleapps1.web.mechanics.MechanicsBrowse"
+        focusComponent="mechanicsesTable"
+        lookupComponent="mechanicsesTable"
+        messagesPack="com.company.bicycleapps1.web.mechanics">
+    <dsContext>
+        <groupDatasource id="mechanicsesDs"
+                         class="com.company.bicycleapps1.entity.Mechanics"
+                         view="mechanics-view">
+            <query>
+                <![CDATA[select e from bicycleapps1$Mechanics e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="mechanicsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="mechanicsesTable"
+                datasource="mechanicsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="mechanicsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="user"/>
+                <column id="hourlyRate"/>
+            </columns>
+            <rows datasource="mechanicsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="mechanicsesTable.create"/>
+                <button id="editBtn"
+                        action="mechanicsesTable.edit"/>
+                <button id="removeBtn"
+                        action="mechanicsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

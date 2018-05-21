@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.app.web.seller.SellerBrowse"
+        focusComponent="sellersTable"
+        lookupComponent="sellersTable"
+        messagesPack="com.company.app.web.seller">
+    <dsContext>
+        <groupDatasource id="sellersDs"
+                         class="com.company.app.entity.Seller"
+                         view="_local">
+            <query>
+                <![CDATA[select e from app$Seller e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="sellersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="sellersTable"
+                datasource="sellersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="sellersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="contact"/>
+                <column id="email"/>
+            </columns>
+            <rows datasource="sellersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="sellersTable.create"/>
+                <button id="editBtn"
+                        action="sellersTable.edit"/>
+                <button id="removeBtn"
+                        action="sellersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

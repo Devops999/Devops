@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.app.web.property.PropertyEdit"
+        datasource="propertyDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.app.web.property">
+    <dsContext>
+        <datasource id="propertyDs"
+                    class="com.company.app.entity.Property"
+                    view="property-view_1"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="propertyDs">
+            <column width="250px">
+                <field property="imageFile"/>
+                <field property="type"/>
+                <field property="city"/>
+                <field property="locality"/>
+                <field property="bhk"/>
+                <field property="area_sq_ft"/>
+                <field property="age_of_construction"/>
+                <field property="price"/>
+                <field property="seller"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

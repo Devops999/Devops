@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/company/accordion/screens.xml"/>
+    <screen id="accordion$Palvisha.browse"
+            template="com/company/accordion/web/palvisha/palvisha-browse.xml"/>
+    <screen id="accordion$Palvisha.edit"
+            template="com/company/accordion/web/palvisha/palvisha-edit.xml"/>
+    <screen id="accordion$ExtUser.browse"
+            template="com/company/accordion/web/extuser/ext-user-browse.xml"/>
+    <screen id="accordion$ExtUser.edit"
+            template="com/company/accordion/web/extuser/ext-user-edit.xml"/>
+</screen-config>

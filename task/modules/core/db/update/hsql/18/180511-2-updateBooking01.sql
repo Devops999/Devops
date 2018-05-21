@@ -1,0 +1,2 @@
+alter table TASK_BOOKING add constraint FK_TASK_BOOKING_SELLER_INFO foreign key (SELLER_INFO_ID) references TASK_SELLER(ID);
+create index IDX_TASK_BOOKING_SELLER_INFO on TASK_BOOKING (SELLER_INFO_ID);

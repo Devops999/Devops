@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="BicycleApps1"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.bicycleapps1.entity.Client</class>
+        <class>com.company.bicycleapps1.entity.Mechanics</class>
+        <class>com.company.bicycleapps1.entity.SparePart</class>
+        <class>com.company.bicycleapps1.entity.Oder</class>
+    </persistence-unit>
+</persistence>

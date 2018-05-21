@@ -1,0 +1,2 @@
+alter table TASK_PROPERTY add constraint FK_TASK_PROPERTY_SELLER foreign key (SELLER_ID) references TASK_SELLER(ID);
+create index IDX_TASK_PROPERTY_SELLER on TASK_PROPERTY (SELLER_ID);

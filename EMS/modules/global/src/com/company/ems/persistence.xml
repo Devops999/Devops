@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="EMS"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.ems.entity.Person</class>
+        <class>com.company.ems.entity.Organization</class>
+        <class>com.company.ems.entity.Bank</class>
+        <class>com.company.ems.entity.Employee</class>
+        <class>com.company.ems.entity.Contact</class>
+        <class>com.company.ems.entity.Address</class>
+        <class>com.company.ems.entity.Country</class>
+        <class>com.company.ems.entity.State</class>
+        <class>com.company.ems.entity.City</class>
+        <class>com.company.ems.entity.ZipCode</class>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ems.web.bank.BankEdit"
+        datasource="bankDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ems.web.bank">
+    <dsContext>
+        <datasource id="bankDs"
+                    class="com.company.ems.entity.Bank"
+                    view="bank-view">
+            <collectionDatasource id="addressesDs"
+                                  property="addresses"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="bankDs">
+            <column width="250px">
+                <field property="fromDate"/>
+                <field property="toDate"/>
+                <field property="bankCode"/>
+                <field property="bankSwitchCode"/>
+                <field property="bankName"/>
+                <field property="branchName"/>
+                <field property="accountType"/>
+                <field property="accountNo"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="addressesBox"
+                  caption="msg://com.company.ems.entity/Bank.addresses">
+            <table id="addressesTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="fromDate"/>
+                    <column id="toDate"/>
+                    <column id="addressType"/>
+                    <column id="addressLine1"/>
+                    <column id="addressline2"/>
+                    <column id="city"/>
+                    <column id="state"/>
+                    <column id="zipCode"/>
+                    <column id="contact"/>
+                </columns>
+                <rows datasource="addressesDs"/>
+                <buttonsPanel>
+                    <button action="addressesTable.create"/>
+                    <button action="addressesTable.edit"/>
+                    <button action="addressesTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

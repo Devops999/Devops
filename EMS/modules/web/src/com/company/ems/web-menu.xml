@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-ems"
+          insertBefore="administration">
+        <item screen="ems$Address.browse"/>
+        <item screen="ems$Bank.browse"/>
+        <item screen="ems$Organization.browse"/>
+    </menu>
+    <menu id="Organization"
+          insertBefore="administration">
+        <item screen="ems$Employee.browse"/>
+    </menu>
+</menu-config>

@@ -1,0 +1,2 @@
+alter table EMS_EMPLOYEE add constraint FK_EMS_EMPLOYEE_MANAGER foreign key (MANAGER_ID) references EMS_EMPLOYEE(ID);
+create index IDX_EMS_EMPLOYEE_MANAGER on EMS_EMPLOYEE (MANAGER_ID);

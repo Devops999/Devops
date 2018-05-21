@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.app.web.property.PropertyBrowse"
+        focusComponent="propertiesTable"
+        lookupComponent="propertiesTable"
+        messagesPack="com.company.app.web.property">
+    <dsContext>
+        <groupDatasource id="propertiesDs"
+                         class="com.company.app.entity.Property"
+                         view="property-view">
+            <query>
+                <![CDATA[select e from app$Property e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="propertiesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="propertiesTable"
+                datasource="propertiesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="propertiesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="type"/>
+                <column id="city"/>
+                <column id="locality"/>
+                <column id="bhk"/>
+                <column id="area_sq_ft"/>
+                <column id="age_of_construction"/>
+                <column id="price"/>
+                <column id="seller"/>
+            </columns>
+            <rows datasource="propertiesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="propertiesTable.create"/>
+                <button id="editBtn"
+                        action="propertiesTable.edit"/>
+                <button id="removeBtn"
+                        action="propertiesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

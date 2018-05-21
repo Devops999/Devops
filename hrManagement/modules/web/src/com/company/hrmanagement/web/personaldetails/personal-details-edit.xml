@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.hrmanagement.web.personaldetails.PersonalDetailsEdit"
+        datasource="personalDetailsDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.hrmanagement.web.personaldetails">
+    <dsContext>
+        <datasource id="personalDetailsDs"
+                    class="com.company.hrmanagement.entity.PersonalDetails"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="personalDetailsDs">
+            <column width="250px">
+                <field property="dateOfBirth"/>
+                <field property="gender"/>
+                <field property="nationality"/>
+                <field property="bloodGroup"/>
+                <field property="maritalStatus"/>
+                <field property="drivingLicenseNumber"/>
+                <field property="code"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

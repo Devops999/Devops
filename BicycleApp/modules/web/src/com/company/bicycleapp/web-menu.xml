@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-bicycleapp"
+          insertBefore="administration">
+        <item screen="bicycleapp$SparePart.browse"/>
+        <item screen="bicycleapp$Client.browse"/>
+        <item screen="bicycleapp$Mechanic.browse"/>
+        <item screen="bicycleapp$Order.browse"/>
+    </menu>
+</menu-config>

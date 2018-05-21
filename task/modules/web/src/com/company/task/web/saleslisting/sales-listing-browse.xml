@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.task.web.saleslisting.SalesListingBrowse"
+        focusComponent="salesListingsTable"
+        lookupComponent="salesListingsTable"
+        messagesPack="com.company.task.web.saleslisting">
+    <dsContext>
+        <groupDatasource id="salesListingsDs"
+                         class="com.company.task.entity.SalesListing"
+                         view="_local">
+            <query>
+                <![CDATA[select e from task$SalesListing e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="salesListingsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="salesListingsTable"
+                datasource="salesListingsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="salesListingsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="appartments"/>
+                <column id="landSites"/>
+                <column id="others"/>
+                <column id="location"/>
+            </columns>
+            <rows datasource="salesListingsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="salesListingsTable.create"/>
+                <button id="editBtn"
+                        action="salesListingsTable.edit"/>
+                <button id="removeBtn"
+                        action="salesListingsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

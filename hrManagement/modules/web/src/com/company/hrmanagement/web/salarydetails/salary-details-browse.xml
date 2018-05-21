@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.hrmanagement.web.salarydetails.SalaryDetailsBrowse"
+        focusComponent="salaryDetailsesTable"
+        lookupComponent="salaryDetailsesTable"
+        messagesPack="com.company.hrmanagement.web.salarydetails">
+    <dsContext>
+        <groupDatasource id="salaryDetailsesDs"
+                         class="com.company.hrmanagement.entity.SalaryDetails"
+                         view="_local">
+            <query>
+                <![CDATA[select e from hrmanagement$SalaryDetails e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="salaryDetailsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="salaryDetailsesTable"
+                datasource="salaryDetailsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="salaryDetailsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="fixedCTC"/>
+                <column id="extra"/>
+                <column id="dateOfImplementation"/>
+                <column id="code"/>
+            </columns>
+            <rows datasource="salaryDetailsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="salaryDetailsesTable.create"/>
+                <button id="editBtn"
+                        action="salaryDetailsesTable.edit"/>
+                <button id="removeBtn"
+                        action="salaryDetailsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

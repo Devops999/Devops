@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.ems.web.employee.EmployeeBrowse"
+        focusComponent="employeesTable"
+        lookupComponent="employeesTable"
+        messagesPack="com.company.ems.web.employee">
+    <dsContext>
+        <groupDatasource id="employeesDs"
+                         class="com.company.ems.entity.Employee"
+                         view="employee-view">
+            <query>
+                <![CDATA[select e from ems$Employee e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="employeesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="employeesTable"
+                datasource="employeesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="employeesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="firstName"/>
+                <column id="middleName"/>
+                <column id="lastName"/>
+                <column id="surname"/>
+                <column id="dateOfBirth"/>
+                <column id="gender"/>
+                <column id="height"/>
+                <column id="weight"/>
+                <column id="email"/>
+                <column id="homePhoneNumber"/>
+                <column id="cellPhoneNumber"/>
+                <column id="manager"/>
+                <column id="user"/>
+                <column id="startDate"/>
+                <column id="terminationDate"/>
+                <column id="resignationDate"/>
+                <column id="annualSalary"/>
+            </columns>
+            <rows datasource="employeesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="employeesTable.create"/>
+                <button id="editBtn"
+                        action="employeesTable.edit"/>
+                <button id="removeBtn"
+                        action="employeesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

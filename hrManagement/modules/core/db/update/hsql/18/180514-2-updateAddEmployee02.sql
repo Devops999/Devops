@@ -1,0 +1,5 @@
+alter table HRMANAGEMENT_ADD_EMPLOYEE alter column CODE rename to CODE__U58920 ;
+alter table HRMANAGEMENT_ADD_EMPLOYEE alter column CODE__U58920 set null ;
+alter table HRMANAGEMENT_ADD_EMPLOYEE add column ESTABLISHMENT_CODE integer ^
+update HRMANAGEMENT_ADD_EMPLOYEE set ESTABLISHMENT_CODE = 0 where ESTABLISHMENT_CODE is null ;
+alter table HRMANAGEMENT_ADD_EMPLOYEE alter column ESTABLISHMENT_CODE set not null ;

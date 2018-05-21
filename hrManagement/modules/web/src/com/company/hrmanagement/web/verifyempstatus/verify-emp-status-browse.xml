@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.hrmanagement.web.verifyempstatus.VerifyEmpStatusBrowse"
+        focusComponent="verifyEmpStatusesTable"
+        lookupComponent="verifyEmpStatusesTable"
+        messagesPack="com.company.hrmanagement.web.verifyempstatus">
+    <dsContext>
+        <groupDatasource id="verifyEmpStatusesDs"
+                         class="com.company.hrmanagement.entity.VerifyEmpStatus"
+                         view="_local">
+            <query>
+                <![CDATA[select e from hrmanagement$VerifyEmpStatus e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="verifyEmpStatusesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="verifyEmpStatusesTable"
+                datasource="verifyEmpStatusesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="verifyEmpStatusesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="fullName"/>
+                <column id="report"/>
+                <column id="submit"/>
+            </columns>
+            <rows datasource="verifyEmpStatusesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="verifyEmpStatusesTable.create"/>
+                <button id="editBtn"
+                        action="verifyEmpStatusesTable.edit"/>
+                <button id="removeBtn"
+                        action="verifyEmpStatusesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

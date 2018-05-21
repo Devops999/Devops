@@ -1,0 +1,2 @@
+alter table TASK_PROPERTY add constraint FK_TASK_PROPERTY_IMAGE_FILE foreign key (IMAGE_FILE_ID) references SYS_FILE(ID);
+create index IDX_TASK_PROPERTY_IMAGE_FILE on TASK_PROPERTY (IMAGE_FILE_ID);

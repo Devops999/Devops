@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.hrmanagement.web.nomineesdetails.NomineesDetailsEdit"
+        datasource="nomineesDetailsDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.hrmanagement.web.nomineesdetails">
+    <dsContext>
+        <datasource id="nomineesDetailsDs"
+                    class="com.company.hrmanagement.entity.NomineesDetails"
+                    view="nomineesDetails-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="nomineesDetailsDs">
+            <column width="250px">
+                <field property="code"/>
+                <field property="typesOfScheme"/>
+                <field property="name"/>
+                <field property="relationship"/>
+                <field property="minorNominee"/>
+                <field property="address"
+                       rows="5"/>
+                <field property="share"/>
+                <field property="dateOfBirth"/>
+                <field property="gurdianName"/>
+                <field property="gurdianAddress"
+                       rows="5"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.task.web.property.PropertyBrowse"
+        focusComponent="propertiesTable"
+        lookupComponent="propertiesTable"
+        messagesPack="com.company.task.web.property">
+    <dsContext>
+        <groupDatasource id="propertiesDs"
+                         class="com.company.task.entity.Property"
+                         view="property-view">
+            <query>
+                <![CDATA[select e from task$Property e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="propertiesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="propertiesTable"
+                datasource="propertiesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="propertiesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="imageFile"/>
+                <column id="type"/>
+                <column id="city"/>
+                <column id="locality"/>
+                <column id="units"/>
+                <column id="areaSqFt"/>
+                <column id="ageOfConstruction"/>
+                <column id="price"/>
+                <column id="seller"/>
+                <column id="enquiry"/>
+            </columns>
+            <rows datasource="propertiesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="propertiesTable.create"/>
+                <button id="editBtn"
+                        action="propertiesTable.edit"/>
+                <button id="removeBtn"
+                        action="propertiesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

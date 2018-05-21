@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.app.web.seller.SellerEdit"
+        datasource="sellerDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.app.web.seller">
+    <dsContext>
+        <datasource id="sellerDs"
+                    class="com.company.app.entity.Seller"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="sellerDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="contact"/>
+                <field property="email"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

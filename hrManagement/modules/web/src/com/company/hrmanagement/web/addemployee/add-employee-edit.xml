@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.hrmanagement.web.addemployee.AddEmployeeEdit"
+        datasource="addEmployeeDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.hrmanagement.web.addemployee">
+    <dsContext>
+        <datasource id="addEmployeeDs"
+                    class="com.company.hrmanagement.entity.AddEmployee"
+                    view="addEmployee-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <groupBox caption="Photo"
+                  expand="embeddedImage"
+                  height="250px"
+                  spacing="true"
+                  width="250px">
+            <embedded id="embeddedImage"
+                      align="MIDDLE_CENTER"
+                      width="100%"/>
+            <hbox align="BOTTOM_LEFT"
+                  spacing="true">
+                <upload id="uploadField"/>
+                <button id="downloadImageBtn"
+                        caption="Download"
+                        invoke="onDownloadImageBtnClick"/>
+                <button id="clearImageBtn"
+                        caption="Clear"
+                        invoke="onClearImageBtnClick"/>
+            </hbox>
+        </groupBox>
+        <fieldGroup id="fieldGroup"
+                    datasource="addEmployeeDs">
+            <column width="250px">
+                <field property="imageFile"/>
+                <field property="code"/>
+                <field property="firstName"/>
+                <field property="middleName"/>
+                <field property="lastName"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

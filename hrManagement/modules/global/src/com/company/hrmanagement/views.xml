@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.hrmanagement.entity.AssignDN"
+          extends="_local"
+          name="assignDN-view">
+        <property name="selectEmployee"
+                  view="_minimal"/>
+        <property name="code"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.hrmanagement.entity.AddEmployee"
+          extends="_local"
+          name="addEmployee-view">
+        <property name="imageFile"
+                  view="_local"/>
+    </view>
+    <view class="com.company.hrmanagement.entity.NomineesDetails"
+          extends="_local"
+          name="nomineesDetails-view">
+        <property name="code"
+                  view="_minimal"/>
+    </view>
+</views>

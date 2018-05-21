@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.task.entity.Property"
+          extends="_local"
+          name="property-view">
+        <property name="imageFile"
+                  view="_local"/>
+        <property name="seller"
+                  view="_local"/>
+    </view>
+</views>

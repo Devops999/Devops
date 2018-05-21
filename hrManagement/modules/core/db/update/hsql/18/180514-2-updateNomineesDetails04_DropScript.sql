@@ -1,0 +1,1 @@
+alter table HRMANAGEMENT_NOMINEES_DETAILS drop column MINOR_NOMINEE_ID__U93309 cascade ;

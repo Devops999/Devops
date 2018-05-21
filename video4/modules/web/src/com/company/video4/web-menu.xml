@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-video4"
+          insertBefore="administration">
+        <item screen="video4$Customer.browse"/>
+        <item screen="video4$Order.browse"/>
+        <item screen="video4$Product.browse"/>
+    </menu>
+</menu-config>

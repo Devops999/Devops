@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/company/task/screens.xml"/>
+    <screen id="task$Customer.browse"
+            template="com/company/task/web/customer/customer-browse.xml"/>
+    <screen id="task$Seller.browse"
+            template="com/company/task/web/seller/seller-browse.xml"/>
+    <screen id="task$Property.browse"
+            template="com/company/task/web/property/property-browse.xml"/>
+    <screen id="task$Property.edit"
+            template="com/company/task/web/property/property-edit.xml"/>
+    <screen id="task$Broker.browse"
+            template="com/company/task/web/broker/broker-browse.xml"/>
+    <screen id="task$Broker.edit"
+            template="com/company/task/web/broker/broker-edit.xml"/>
+    <screen id="task$SalesListing.browse"
+            template="com/company/task/web/saleslisting/sales-listing-browse.xml"/>
+    <screen id="task$Transaction.browse"
+            template="com/company/task/web/transaction/transaction-browse.xml"/>
+    <screen id="task$Transaction.edit"
+            template="com/company/task/web/transaction/transaction-edit.xml"/>
+    <screen id="task$Booking.browse"
+            template="com/company/task/web/booking/booking-browse.xml"/>
+    <screen id="task$Office.browse"
+            template="com/company/task/web/office/office-browse.xml"/>
+</screen-config>

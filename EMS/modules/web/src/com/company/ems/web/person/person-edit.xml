@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ems.web.person.PersonEdit"
+        datasource="personDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ems.web.person">
+    <dsContext>
+        <datasource id="personDs"
+                    class="com.company.ems.entity.Person"
+                    view="person-view">
+            <collectionDatasource id="addressesDs"
+                                  property="addresses"/>
+            <collectionDatasource id="contactsDs"
+                                  property="contacts"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="personDs">
+                <column width="250px">
+                    <field property="firstName"/>
+                    <field property="lastName"/>
+                    <field property="middleName"/>
+                    <field property="surname"/>
+                    <field property="dateOfBirth"/>
+                    <field property="gender"/>
+                    <field property="height"/>
+                    <field property="weight"/>
+                    <field property="email"/>
+                    <field property="homePhoneNumber"/>
+                    <field property="cellPhoneNumber"/>
+                </column>
+            </fieldGroup>
+            <groupBox id="addressesBox"
+                      caption="msg://com.company.ems.entity/Person.addresses">
+                <table id="addressesTable"
+                       height="200px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="fromDate"/>
+                        <column id="toDate"/>
+                        <column id="addressType"/>
+                        <column id="addressLine1"/>
+                        <column id="addressline2"/>
+                        <column id="city"/>
+                        <column id="state"/>
+                        <column id="zipCode"/>
+                    </columns>
+                    <rows datasource="addressesDs"/>
+                    <buttonsPanel>
+                        <button action="addressesTable.create"/>
+                        <button action="addressesTable.edit"/>
+                        <button action="addressesTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+            <groupBox id="contactsBox"
+                      caption="msg://com.company.ems.entity/Person.contacts">
+                <table id="contactsTable"
+                       height="200px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="contactFirstName"/>
+                        <column id="contactLastName"/>
+                        <column id="homePhoneNumber"/>
+                        <column id="cellPhoneNumber"/>
+                        <column id="email"/>
+                    </columns>
+                    <rows datasource="contactsDs"/>
+                    <buttonsPanel>
+                        <button action="contactsTable.create"/>
+                        <button action="contactsTable.edit"/>
+                        <button action="contactsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </groupBox>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
